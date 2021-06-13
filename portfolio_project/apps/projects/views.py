@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Project
+from .models import Project, ProjectImages
 
 def project_index(request):
     projects = Project.objects.all()
@@ -21,7 +21,9 @@ def project_index(request):
 def project_detail(request, pk):
     filter = Project.objects.filter(pk=pk)
     project = get_object_or_404(filter, pk=pk)
+    images = ProjectImages.objects.filter(project=project)
     context = {
-        'project': project
+        'project': project,
+        'images': images,
     }
     return render(request, 'project_detail.html', context)

@@ -1,11 +1,23 @@
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from blog.models import Post, Comment
 from .forms import CommentForm
 
+
 def blog_index(request):
     posts = Post.objects.all().order_by('-created_on')
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(posts, 3)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
     context = {
         "posts": posts,
+
     }
     return render(request, "blog_index.html", context)
 

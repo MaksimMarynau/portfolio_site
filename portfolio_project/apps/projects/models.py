@@ -10,3 +10,14 @@ class Project(models.Model):
         blank=True,
         default='projects/no-image.jpg'
     )
+
+class ProjectImages(models.Model):
+    project = models.ForeignKey(Project, default=None, on_delete=models.CASCADE)
+    images = models.ImageField(
+        upload_to='projects/additional/',
+        blank=True,
+        default='projects/additional/no-image.jpg'
+    )
+
+    def __str__(self):
+        return self.project.title
