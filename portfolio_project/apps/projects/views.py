@@ -6,7 +6,7 @@ def project_index(request):
     projects = Project.objects.all()
     page = request.GET.get('page', 1)
 
-    paginator = Paginator(projects, 3)
+    paginator = Paginator(projects, 6)
     try:
         projects = paginator.page(page)
     except PageNotAnInteger:
