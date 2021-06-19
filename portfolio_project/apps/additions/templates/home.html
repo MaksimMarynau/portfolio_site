@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% load bootstrap4 %}
 {% load bootstrap_icons %}
+
 {% block page_content %}
 <header>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            {% for project in projects %}
+            {% for project in projects_random %}
             {% if forloop.first %}
             <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
             {% else %}
@@ -14,22 +15,17 @@
             {% endfor %}
         </ol>
         <div class="carousel-inner" role="listbox">
-            <!-- Slide One - Set the background image for this slide in the line below -->
-            {% for project in projects %}
+            {% for project in projects_random %}
             {% if forloop.first %}
             <div class="carousel-item active" style="background-image: url('{{ project.image.url }}')">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2 class="display-4">First Slide</h2>
-                    <p class="lead">This is a description for the first slide.</p>
+                    <h2 class="display-4">{{ project.title }}</h2>
                 </div>
             </div>
-
             {% else %}
-            <!-- Slide Two - Set the background image for this slide in the line below -->
             <div class="carousel-item" style="background-image: url('{{ project.image.url }}')">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2 class="display-4">Second Slide</h2>
-                    <p class="lead">This is a description for the second slide.</p>
+                    <h2 class="display-4">{{ project.title }}</h2>
                 </div>
             </div>
             {% endif %}
@@ -66,7 +62,7 @@
             <div class="col-md-4 section-1-box wow fadeInUp">
                 <div class="row">
                     <div class="col-md-4">
-                        <i>{% bs_icon 'stars' size="75px" %}</i>
+                        <i><img src="media/icons/finger_before.png" class="icons-75"></i>
                     </div>
                     <div class="col-md-8">
                         <h3>Branding</h3>
@@ -78,7 +74,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="section-1-box-icon">
-                            <i>{% bs_icon 'gear' size="75px" %}</i>
+                            <i><img src="media/icons/finger_process.png" class="icons-75"></i>
                         </div>
                     </div>
                     <div class="col-md-8">
@@ -90,7 +86,7 @@
             <div class="col-md-4 section-1-box wow fadeInUp">
                 <div class="row">
                     <div class="col-md-4">
-                        <i>{% bs_icon 'twitter' size="75px" %}</i>
+                        <i><img src="media/icons/finger_complete.png" class="icons-75"></i>
                     </div>
                     <div class="col-md-8">
                         <h3>Social media</h3>
@@ -143,7 +139,7 @@
             <div class="col-md-6 section-3-box wow fadeInLeft">
                 <div class="row">
                     <div class="col-md-3">
-                        <i>{% bs_icon 'paperclip' size="75px" %}</i>
+                        <i><img src="media/icons/acrylic.png" class="icons-75"></i>
                     </div>
                     <div class="col-md-9">
                         <h3>Ut wisi enim ad minim</h3>
@@ -157,7 +153,7 @@
             <div class="col-md-6 section-3-box wow fadeInLeft">
                 <div class="row">
                     <div class="col-md-3">
-                        <i>{% bs_icon 'pencil' size="75px" %}</i>
+                        <i><img src="media/icons/nail-polish.png" class="icons-75"></i>
                     </div>
                     <div class="col-md-9">
                         <h3>Sed do eiusmod tempor</h3>
@@ -174,7 +170,7 @@
             <div class="col-md-6 section-3-box wow fadeInLeft">
                 <div class="row">
                     <div class="col-md-3">
-                        <i>{% bs_icon 'cloud' size="75px" %}</i>
+                        <i><img src="media/icons/nail-clipper.png" class="icons-75"></i>
                     </div>
                     <div class="col-md-9">
                         <h3>Quis nostrud exerci tat</h3>
@@ -188,7 +184,7 @@
             <div class="col-md-6 section-3-box wow fadeInLeft">
                 <div class="row">
                     <div class="col-md-3">
-                        <i>{% bs_icon 'google' size="75px" %}</i>
+                        <i><img src="media/icons/nail.png" class="icons-75"></i>
                     </div>
                     <div class="col-md-9">
                         <h3>Minim veniam quis nostrud</h3>
