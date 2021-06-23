@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-<h1>Projects</h1>
-
-    <div class="card-columns">
-    {% for project in projects %}
+<div class="text-white bg-secondary mb-5 py-4 text-center">
+    <div class="card-body">
+        <h1>Projects</h1>
+        <p class="lead">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+    </div>
+</div>
+<div class="card-columns">
+{% for project in projects %}
     <div class="card">
        <img class="card-img-top img-fluid" src="{{ project.image.url }}" alt="Card image cap" height="220px">
        <div class="card-body">
@@ -16,8 +20,8 @@
          </a>
        </div>
     </div>
-    {% endfor %}
-    </div>
+{% endfor %}
+</div>
 
 {% if projects.has_other_pages %}
 <nav aria-label="Page navigation example">

@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-<section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">About example</h1>
-        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+<div class="text-white bg-secondary mb-5 py-4 text-center">
+    <div class="card-body">
+        <h1>About example</h1>
+        <p class="lead">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
     </div>
-</section>
+</div>
 <div class="container px-4 px-lg-5">
     <!-- Heading Row-->
     <div class="row gx-4 gx-lg-5 align-items-center my-5">
@@ -27,55 +27,16 @@
 
 </div>
 <div class="card-group">
+    {% for tool in tools|slice:":3" %}
     <div class="card">
-        <img class="card-img-top" src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="Card image cap">
+        <img class="card-img-top" src="{{ tool.image.url }}" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <h5 class="card-title">{{ tool.name }}</h5>
+            <p class="card-text">{{ tool.description }}</p>
+            <p class="card-text"><small class="text-muted">Added {{ tool.created }}</small></p>
         </div>
     </div>
-    <div class="card">
-        <img class="card-img-top" src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-    </div>
-    <div class="card">
-        <img class="card-img-top" src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-    </div>
+    {% endfor %}
 </div>
-<div class="card-group">
-    <div class="card">
-        <img class="card-img-top" src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-    </div>
-    <div class="card">
-        <img class="card-img-top" src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-    </div>
-    <div class="card">
-        <img class="card-img-top" src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-    </div>
-</div>
+
 {% endblock %}

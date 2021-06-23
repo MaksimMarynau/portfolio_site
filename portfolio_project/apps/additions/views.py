@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 import random
-from projects.models import Project
+from projects.models import Project, ProjectImages
+from .models import Tool
 from .forms import ContactForm
 # Create your views here.
 
 def home_view(request):
     projects = list(Project.objects.all())
+
     projects_random = random.sample(projects, 3)
     context = {
         "projects_random": projects_random,
@@ -14,7 +16,11 @@ def home_view(request):
     return render(request, "home.html", context)
 
 def about_view(request):
-    return render(request, "about.html")
+    tools = Tool.objects.all()
+    context = {
+        "tools": tools,
+    }
+    return render(request, "about.html", context)
 
 def work_view(request):
     return render(request, "work.html")

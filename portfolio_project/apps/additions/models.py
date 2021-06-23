@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class Contact(models.Model):
@@ -8,3 +9,16 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.email
+
+class Tool(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    image = models.ImageField(
+        upload_to='tools/',
+        blank=True,
+        default='tools/no-image.jpg'
+    )
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
