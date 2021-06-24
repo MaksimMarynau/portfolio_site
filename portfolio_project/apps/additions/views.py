@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 import random
 from projects.models import Project, ProjectImages
@@ -16,9 +16,10 @@ def home_view(request):
     return render(request, "home.html", context)
 
 def about_view(request):
-    tools = Tool.objects.all()
+    tools = list(Tool.objects.all())
+    tools_random = random.sample(tools, 9)
     context = {
-        "tools": tools,
+        "tools_random": tools_random,
     }
     return render(request, "about.html", context)
 
@@ -37,3 +38,17 @@ def contact_view(request):
 
 def success_view(request):
     return render(request, 'success.html')
+
+def tools_view(request):
+    tools = Tool.objects.all()
+    context = {
+        "tools": tools,
+    }
+    return render(request, "tools.html", context)
+
+def tool_detail(request, id):
+    tool = get_object_or_404(Tool, id=id)
+    context = {
+        "tool": tool,
+    }
+    return render(request, "tool_detail.html", context)
