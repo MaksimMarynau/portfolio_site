@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 import random
 from projects.models import Project, ProjectImages
+from utils.utils import paginator_use
 from .models import Tool
 from .forms import ContactForm
 # Create your views here.
@@ -40,7 +41,8 @@ def success_view(request):
     return render(request, 'success.html')
 
 def tools_view(request):
-    tools = Tool.objects.all()
+    tools = Tool.objects.all().order_by('name','tool_num')
+    tools = paginator_use(request, tools, num=10)
     context = {
         "tools": tools,
     }

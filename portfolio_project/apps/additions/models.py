@@ -13,6 +13,7 @@ class Contact(models.Model):
 
 class Tool(models.Model):
     name = models.CharField(max_length=255)
+    tool_num = models.IntegerField(null=True, default=0)
     description = models.TextField()
     image = models.ImageField(
         upload_to='tools/',
@@ -23,6 +24,7 @@ class Tool(models.Model):
 
     def __str__(self):
         return self.name
+
 
     def get_absolute_url(self):
         return reverse("tool_detail", kwargs={'slug':self.id})

@@ -1,18 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Project, ProjectImages
+from utils.utils import paginator_use
 
 def project_index(request):
     projects = Project.objects.all()
-    page = request.GET.get('page', 1)
-
-    paginator = Paginator(projects, 6)
-    try:
-        projects = paginator.page(page)
-    except PageNotAnInteger:
-        projects = paginator.page(1)
-    except EmptyPage:
-        projects = paginator.page(paginator.num_pages)
+    projects = paginator_use(request, projects, num=6)
     context = {
         'projects': projects,
     }
