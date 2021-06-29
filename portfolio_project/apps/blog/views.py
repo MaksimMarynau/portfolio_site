@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from blog.models import Post, Comment
 from .forms import CommentForm
@@ -40,6 +40,8 @@ def blog_detail(request, pk):
                 post=post
             )
             comment.save()
+            return redirect('blog_detail', pk)
+
     context = {
         "post": post,
         "comments": comments,

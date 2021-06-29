@@ -8,7 +8,7 @@
     </div>
 </div>
 <div class="container px-4 px-lg-5">
-    <!-- Heading Row-->
+
     <div class="row gx-4 gx-lg-5 align-items-center my-5">
         <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://static.dw.com/image/15690614_303.jpg" alt="..." /></div>
         <div class="col-lg-5">
@@ -16,27 +16,42 @@
             <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
         </div>
     </div>
-    <!-- Call to Action-->
+
     <div class="card text-white bg-secondary my-5 py-4 text-center">
         <div class="card-body">
             <p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p>
         </div>
     </div>
-    <!-- Content Row-->
+
 
 </div>
-<div class="card-columns">
-    {% for tool in tools_random %}
-    <div class="card">
-        <img class="card-img-top" src="{{ tool.image.url }}" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">{{ tool.name }}</h5>
-            <p class="card-text">{{ tool.description }}</p>
-            <p class="card-text"><small class="text-muted">Added {{ tool.created }}</small></p>
-            <a class="btn btn-outline-dark" href="{% url 'tools_view' %}">See more!</a>
+<div class="container">
+    <div class="row">
+        <div class="card-columns">
+            {% for tool in tools_random %}
+            <div class="card">
+                <img class="card-img-top" src="{{ tool.image.url }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ tool.name }}</h5>
+                    <p class="card-text">{{ tool.description }}</p>
+                    <p class="card-text"><small class="text-muted">Added {{ tool.created }}</small></p>
+                    <a class="btn btn-outline-dark" href="{% url 'tools_view' %}">See more!</a>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
-    {% endfor %}
+    {% block btn %}
+    <div class="mb-5 py-4 text-center">
+        <a href="{% url 'project_index' %}" class="btn btn-outline-dark btn-lg btn-block">See my work</a>
+        <p class="m-0 p-0">
+            or
+        </p>
+        <a href="{% url 'photos_view' %}" class="btn btn-outline-dark btn-lg btn-block">Take a look at My travel photos</a>
+    </div>
+    {% endblock btn %}
 </div>
+
+
 
 {% endblock %}

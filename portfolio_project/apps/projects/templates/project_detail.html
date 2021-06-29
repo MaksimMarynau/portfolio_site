@@ -2,23 +2,22 @@
 
 
 {% block page_content %}
-    <div class="container">
-        <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">{{ project.title }}</h1>
-        <hr class="mt-2 mb-5">
-        <div class="row text-center text-lg-left">
-            <div class="col-lg-3 col-md-4 col-6">
-                <a href="{{ project.image.url }}" class="d-block mb-4 h-100" data-lightbox="photos">
-                    <img class="img-fluid img-thumbnail" src="{{ project.image.url }}" alt="">
-                </a>
-            </div>
-            {% for image in images %}
-            <div class="col-lg-3 col-md-4 col-6">
-                <a href="{{ image.images.url }}" class="d-block mb-4 h-100" data-lightbox="photos">
-                    <img class="img-fluid img-thumbnail" src="{{ image.images.url }}" alt="">
-                </a>
-            </div>
-            {% endfor %}
+<div class="container">
+    <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">{{ project.title }}</h1>
+    <hr class="mt-2 mb-5">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-6">
+            <a href="{{ project.image.url }}" class="d-block mb-4 h-100" data-lightbox="photos">
+                <img class="img-fluid img-thumbnail" src="{{ project.image.url }}" alt="">
+            </a>
         </div>
+        {% for image in images %}
+        <div class="col-lg-3 col-md-4 col-6">
+            <a href="{{ image.images.url }}" class="d-block mb-4 h-100" data-lightbox="photos">
+                <img class="img-fluid img-thumbnail" src="{{ image.images.url }}" alt="">
+            </a>
+        </div>
+        {% endfor %}
     </div>
 
     <div class="col-md-12">
@@ -28,6 +27,9 @@
         <h5>Technology used:</h5>
         <p>{{ project.technology }}</p>
     </div>
+</div>
+
+
 
 
 {% endblock %}

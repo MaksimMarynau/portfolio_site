@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="text-dark mb-5 py-4 text-center">
+    <div class="card-body">
+        <h1>Photos from Around the World</h1>
+        <p class="lead">I’ve been working very hard to get the opportunity to travel the world. I love everything about it – different cultures, inspiring people, food adventures and landscapes that will leave you speechless. Here are a few photos
+            from very different and amazing places in the world.</p>
+        <p class='lead'>Explore. Dream. Discover.</p>
+        <hr class="mt-5" />
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="figure my-5">
+            <img src="https://wallpapercave.com/wp/wp2324982.jpg" class="figure-img img-fluid" alt="Responsive image">
+            <figcaption class="figure-caption text-right">A caption for the above image.</figcaption>
+            <hr class="mt-5" />
+        </div>
+        <div class="figure my-5">
+            <img src="https://wallpapercave.com/wp/wp2324982.jpg" class="figure-img img-fluid" alt="Responsive image">
+            <figcaption class="figure-caption text-right">A caption for the above image.</figcaption>
+            <hr class="mt-5" />
+        </div>
+        <div class="figure my-5">
+            <img src="https://wallpapercave.com/wp/wp2324982.jpg" class="figure-img img-fluid" alt="Responsive image">
+            <figcaption class="figure-caption text-right">A caption for the above image.</figcaption>
+            <hr class="mt-5" />
+        </div>
+        <div class="figure my-5">
+            <img src="https://wallpapercave.com/wp/wp2324982.jpg" class="figure-img img-fluid" alt="Responsive image">
+            <figcaption class="figure-caption text-right">A caption for the above image.</figcaption>
+            <hr class="mt-5" />
+        </div>
+
+    </div>
+    {% block btn %}
+    <div class="mb-5 py-4 text-center">
+        <a href="https://www.instagram.com/" class="btn btn-outline-dark btn-lg btn-block" target="_blank">Follow me on Instagram</a>
+        <p class="m-0 p-0">
+            or
+        </p>
+        <a href="{% url 'contact_view' %}" class="btn btn-outline-dark btn-lg btn-block">Get in touch with me</a>
+    </div>
+    {% endblock btn %}
+</div>
+
+{% endblock %}

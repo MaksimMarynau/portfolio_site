@@ -9,7 +9,7 @@
 <div class="d-flex justify-content-center mb-5">
     <div class="row">
         <div class="col section-2-box wow fadeInLeft">
-            <h3>{{tool.name}}</h3>
+            <h3>{{tool.name}} #{{tool.tool_num}}</h3>
             <p class="medium-paragraph">
                 {{tool.description}}
             </p>
@@ -19,5 +19,13 @@
         </div>
     </div>
 </div>
-
+{% block btn %}
+<div class="mb-5 py-4 text-center">
+    <button type="button" class="btn btn-outline-dark btn-lg">Block level button</button>
+    <p class="m-0 p-0">
+        or
+    </p>
+    <button type="button" class="btn btn-outline-dark btn-lg">Block level button</button>
+</div>
+{% endblock btn %}
 {% endblock %}

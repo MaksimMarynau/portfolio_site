@@ -24,8 +24,8 @@ def about_view(request):
     }
     return render(request, "about.html", context)
 
-def work_view(request):
-    return render(request, "work.html")
+def photos_view(request):
+    return render(request, "photos.html")
 
 def contact_view(request):
     if request.method == 'POST':

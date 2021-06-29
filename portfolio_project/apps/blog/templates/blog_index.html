@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block page_content %}
 <div class="col-md-8 offset-md-2">
-    <h1>Blog Index</h1>
+    <h1 class="py-2">Here will appear some interesting news or last updates.</h1>
     <hr>
     {% for post in posts %}
     <h2><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h2>
@@ -49,5 +49,17 @@
     </ul>
 </nav>
 {% endif %}
+
+<div class="container">
+    {% block btn %}
+    <div class="mb-5 py-4 text-center">
+        <a href="{% url 'photos_view' %}" class="btn btn-outline-dark btn-lg btn-block">Take a look at My travel photos</a>
+        <p class="m-0 p-0">
+            or
+        </p>
+        <a href="{% url 'contact_view' %}" class="btn btn-outline-dark btn-lg btn-block">Get in touch with me</a>
+    </div>
+    {% endblock btn %}
+</div>
 
 {% endblock %}

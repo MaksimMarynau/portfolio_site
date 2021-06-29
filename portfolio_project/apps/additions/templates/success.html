@@ -5,4 +5,16 @@
     <h1>Success! Thank you for your message.</h1>
     <p class="lead">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
 </div>
+<div class="container">
+    {% block btn %}
+    <div class="mb-5 py-4 text-center">
+        <a href="{% url 'home_view' %}" class="btn btn-outline-dark btn-lg btn-block">Back to the Home page</a>
+        <p class="m-0 p-0">
+            or
+        </p>
+        <a href="{% url 'blog_index' %}" class="btn btn-outline-dark btn-lg btn-block">Read My blog</a>
+    </div>
+    {% endblock btn %}
+</div>
+
 {% endblock %}
