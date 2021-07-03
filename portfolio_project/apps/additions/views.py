@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
 import random
 from projects.models import Project, ProjectImages
 from utils.utils import paginator_use
-from .models import Tool
+from .models import Tool, TravelPhoto
 from .forms import ContactForm
 # Create your views here.
+
 
 def home_view(request):
     projects = list(Project.objects.all())
@@ -16,6 +16,7 @@ def home_view(request):
     }
     return render(request, "home.html", context)
 
+
 def about_view(request):
     tools = list(Tool.objects.all())
     tools_random = random.sample(tools, 9)
@@ -24,8 +25,15 @@ def about_view(request):
     }
     return render(request, "about.html", context)
 
+
 def photos_view(request):
-    return render(request, "photos.html")
+    photos = list(TravelPhoto.objects.all())
+    photos_random = random.sample(photos, 4)
+    context = {
+        "photos_random": photos_random,
+    }
+    return render(request, "photos.html", context)
+
 
 def contact_view(request):
     if request.method == 'POST':
@@ -37,16 +45,19 @@ def contact_view(request):
     context = {'form': form}
     return render(request, 'contact.html', context)
 
+
 def success_view(request):
     return render(request, 'success.html')
 
+
 def tools_view(request):
-    tools = Tool.objects.all().order_by('name','tool_num')
+    tools = Tool.objects.all().order_by('name', 'tool_num')
     tools = paginator_use(request, tools, num=10)
     context = {
         "tools": tools,
     }
     return render(request, "tools.html", context)
+
 
 def tool_detail(request, id):
     tool = get_object_or_404(Tool, id=id)

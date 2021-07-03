@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
-{% load bootstrap_icons %}
+
+{% block title %}Contact{% endblock %}
+
 {% block page_content %}
 
 <div class="text-white bg-secondary mb-5 py-4 text-center">
@@ -12,21 +14,23 @@
 <div class="col-lg-6 col-md-8 mx-auto">
     <div class="container-fluid">
         <div class="map-responsive">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d163975.3450737131!2d19.864788338648413!3d50.04668135045003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471644c0354e18d1%3A0xb46bb6b576478abf!2zS3Jha8Ozdw!5e0!3m2!1sen!2spl!4v1624090167007!5m2!1sen!2spl" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d163975.3450737131!2d19.864788338648413!3d50.04668135045003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471644c0354e18d1%3A0xb46bb6b576478abf!2zS3Jha8Ozdw!5e0!3m2!1sen!2spl!4v1624090167007!5m2!1sen!2spl"
+                width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
     </div>
 </div>
 <div class="my-5 py-4 text-center">
     <ul class="list-unstyled mb-0">
-        <li>{% bs_icon 'map' size='1.5em' %}
+        <li><i class="fas fa-map-marked-alt"></i>
             <p>San Francisco, CA 94126, USA</p>
         </li>
 
-        <li>{% bs_icon 'telephone' size='1.5em' %}
+        <li><i class="fas fa-phone"></i>
             <p>+ 01 234 567 89</p>
         </li>
 
-        <li>{% bs_icon 'envelope' size='1.5em' %}
+        <li><i class="fas fa-envelope"></i>
             <p>contact@conatct.com</p>
         </li>
     </ul>
@@ -44,6 +48,16 @@
         {{ form.email|as_crispy_field }}
         {{ form.subject|as_crispy_field }}
         {{ form.message|as_crispy_field }}
+        {% for message in messages %}
+        <div class="container-fluid p-0">
+            <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+            </div>
+        </div>
+        {% endfor %}
         <button type="submit" class="btn btn-outline-dark">Send</button>
     </form>
 </div>

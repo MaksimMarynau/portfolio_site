@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from django.urls import reverse
+from django.core.validators import EmailValidator
+
 
 # Create your models here.
 class Contact(models.Model):
@@ -25,6 +27,17 @@ class Tool(models.Model):
     def __str__(self):
         return self.name
 
-
     def get_absolute_url(self):
         return reverse("tool_detail", kwargs={'slug':self.id})
+
+
+class TravelPhoto(models.Model):
+    title = models.CharField(max_length=255)
+    image = models.ImageField(
+        upload_to='travel_photos/',
+        blank=True,
+        default='no-image.jpg'
+    )
+
+    def __str__(self):
+        return self.title.title()

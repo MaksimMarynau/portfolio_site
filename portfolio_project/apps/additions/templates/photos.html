@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}Photos{% endblock %}
+
 {% block page_content %}
 <div class="text-dark mb-5 py-4 text-center">
     <div class="card-body">
@@ -12,27 +14,13 @@
 </div>
 <div class="container">
     <div class="row">
+        {% for photo in photos_random %}
         <div class="figure my-5">
-            <img src="https://wallpapercave.com/wp/wp2324982.jpg" class="figure-img img-fluid" alt="Responsive image">
-            <figcaption class="figure-caption text-right">A caption for the above image.</figcaption>
+            <img src="{{photo.image.url}}" class="figure-img img-fluid" alt="Responsive image">
+            <figcaption class="figure-caption text-right">{{photo.title|title}}</figcaption>
             <hr class="mt-5" />
         </div>
-        <div class="figure my-5">
-            <img src="https://wallpapercave.com/wp/wp2324982.jpg" class="figure-img img-fluid" alt="Responsive image">
-            <figcaption class="figure-caption text-right">A caption for the above image.</figcaption>
-            <hr class="mt-5" />
-        </div>
-        <div class="figure my-5">
-            <img src="https://wallpapercave.com/wp/wp2324982.jpg" class="figure-img img-fluid" alt="Responsive image">
-            <figcaption class="figure-caption text-right">A caption for the above image.</figcaption>
-            <hr class="mt-5" />
-        </div>
-        <div class="figure my-5">
-            <img src="https://wallpapercave.com/wp/wp2324982.jpg" class="figure-img img-fluid" alt="Responsive image">
-            <figcaption class="figure-caption text-right">A caption for the above image.</figcaption>
-            <hr class="mt-5" />
-        </div>
-
+        {% endfor %}
     </div>
     {% block btn %}
     <div class="mb-5 py-4 text-center">

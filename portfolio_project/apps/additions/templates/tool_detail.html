@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}{{tool.name}}{% endblock %}
+
 {% block page_content %}
 <div class="text-white bg-secondary mb-5 py-4 text-center">
     <div class="card-body">
@@ -19,13 +21,5 @@
         </div>
     </div>
 </div>
-{% block btn %}
-<div class="mb-5 py-4 text-center">
-    <button type="button" class="btn btn-outline-dark btn-lg">Block level button</button>
-    <p class="m-0 p-0">
-        or
-    </p>
-    <button type="button" class="btn btn-outline-dark btn-lg">Block level button</button>
-</div>
-{% endblock btn %}
+
 {% endblock %}
