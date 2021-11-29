@@ -9,7 +9,7 @@ class ProjectImagesAdmin(admin.StackedInline):
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('title','description','product_used','image_tag')
+    list_display = ('title','description','image_tag')
     filter_horizontal = ('tool_used',)
     inlines = [ProjectImagesAdmin]
 

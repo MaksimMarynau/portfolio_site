@@ -8,9 +8,12 @@ from .forms import ContactForm
 
 
 def home_view(request):
-    projects = list(Project.objects.all())
 
-    projects_random = random.sample(projects, 3)
+    projects_random = None
+
+    if projects := list(Project.objects.all()):
+        projects_random = random.sample(projects, 3)
+
     context = {
         "projects_random": projects_random,
     }
@@ -18,8 +21,11 @@ def home_view(request):
 
 
 def about_view(request):
-    tools = list(Tool.objects.all())
-    tools_random = random.sample(tools, 9)
+
+    tools_random = None
+
+    if tools := list(Tool.objects.all()):
+        tools_random = random.sample(tools, 9)
     context = {
         "tools_random": tools_random,
     }
@@ -27,8 +33,11 @@ def about_view(request):
 
 
 def photos_view(request):
-    photos = list(TravelPhoto.objects.all())
-    photos_random = random.sample(photos, 4)
+
+    photos_random = None
+
+    if photos := list(TravelPhoto.objects.all()):
+        photos_random = random.sample(photos, 4)
     context = {
         "photos_random": photos_random,
     }
