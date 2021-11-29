@@ -25,7 +25,7 @@ class Tool(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name} {self.tool_num}'
 
     def get_absolute_url(self):
         return reverse("tool_detail", kwargs={'slug':self.id})
