@@ -1,7 +1,5 @@
 from django.db import models
-from django.utils import timezone
 from django.urls import reverse
-from django.core.validators import EmailValidator
 
 
 # Create your models here.
@@ -15,7 +13,7 @@ class Contact(models.Model):
 
 class Tool(models.Model):
     name = models.CharField(max_length=255)
-    tool_num = models.IntegerField(null=True, default=0)
+    tool_num = models.CharField(blank=True, default='', max_length=20)
     description = models.TextField()
     image = models.ImageField(
         upload_to='tools/',

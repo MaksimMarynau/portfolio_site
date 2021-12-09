@@ -7,7 +7,7 @@ from additions.models import Tool
 class Project(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    tool_used = models.ManyToManyField(Tool, related_name='tools')
+    tool_used = models.ManyToManyField(Tool, related_name='tools', blank=True)
     image = models.ImageField(
         upload_to='projects/',
         blank=True,

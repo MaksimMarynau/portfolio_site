@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 import random
-from projects.models import Project, ProjectImages
+from projects.models import Project
 from utils.utils import paginator_use
 from .models import Tool, TravelPhoto
 from .forms import ContactForm
@@ -10,8 +10,8 @@ from .forms import ContactForm
 def home_view(request):
 
     projects_random = None
-
-    if projects := list(Project.objects.all()):
+    projects = list(Project.objects.all())
+    if projects and len(projects)>3 :
         projects_random = random.sample(projects, 3)
 
     context = {
@@ -23,9 +23,9 @@ def home_view(request):
 def about_view(request):
 
     tools_random = None
-
-    if tools := list(Tool.objects.all()):
-        tools_random = random.sample(tools, 9)
+    tools = list(Tool.objects.all())
+    if tools and len(tools)>=4:
+        tools_random = random.sample(tools, 4)
     context = {
         "tools_random": tools_random,
     }
@@ -35,9 +35,9 @@ def about_view(request):
 def photos_view(request):
 
     photos_random = None
-
-    if photos := list(TravelPhoto.objects.all()):
-        photos_random = random.sample(photos, 4)
+    photos = list(TravelPhoto.objects.all())
+    if photos and len(photos)>=3 :
+        photos_random = random.sample(photos, 3)
     context = {
         "photos_random": photos_random,
     }

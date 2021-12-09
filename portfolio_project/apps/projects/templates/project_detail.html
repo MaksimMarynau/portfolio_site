@@ -27,7 +27,7 @@
         <br>
         <h5>Tools used:</h5>
         {% for tool in project.tool_used.all %}
-            <a href="{% url 'tool_detail' tool.pk %}">{{ tool }}</a>
+            <a href="{% url 'tool_detail' tool.pk %}" class="btn btn-outline-dark btn-block" >{{ tool }}</a><br>
         {% endfor %}
     </div>
 </div>
